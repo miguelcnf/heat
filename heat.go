@@ -30,7 +30,7 @@ func getHot(signals chan os.Signal, exit chan bool) {
 	for {
 		select {
 		case <-signals:
-			exit <-true
+			exit <- true
 		default:
 			_, _ = hasher.Write([]byte(random))
 		}
